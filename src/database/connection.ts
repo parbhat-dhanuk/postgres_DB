@@ -1,6 +1,10 @@
 import { Sequelize } from "sequelize-typescript";
 
-const sequelize = new Sequelize(process.env.CONNECTION_STRING as string)
+const sequelize = new Sequelize(process.env.CONNECTION_STRING as string,{
+    models:[__dirname + '/models']
+})
+
+
 
 try {
     sequelize.authenticate()
@@ -13,5 +17,9 @@ try {
 } catch (error) {
     console.log(error)
 }
+
+sequelize.sync({force : false}).then(()=>{
+    console.log("Table migrates to database successfully")
+})
 
 export default sequelize
