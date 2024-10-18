@@ -1,0 +1,35 @@
+npm init -y
+npm i typescript -D
+npx tsc --init
+npm i @types/node -D //type saftey for node apis for files process and Os.
+
+//make src folder and tyo vitra App.ts folder banaune
+
+npm i express
+npm i @types/express -D
+npm i ts-node nodemon -D
+
+//make file nodemon.json 
+
+{
+    "watch":["src"],
+    "ext":".js,.ts",
+    "exec":"npx ts-node ./src/app.ts"
+}
+
+//go to package.json add key value in script
+
+   "start":"npx nodemon"
+
+//Database connection
+
+npm i sequelize-typescript mysql2  //for mysql Database
+npm i sequelize-typescript pg      //for postgres database
+
+//App.ts
+npm i dotenv
+import {config} from "dotenv"
+config()
+
+
+
